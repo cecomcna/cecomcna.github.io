@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Plataforma Logística - Centro de Mando</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f3f4f6; /* Fondo gris claro */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .iframe-container {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* PANTALLA DE CARGA (OVERLAY) */
+    .loader-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff; /* Fondo blanco mientras carga */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999; /* Asegura que esté por encima del iframe */
+      transition: opacity 0.5s ease, visibility 0.5s ease; /* Transición suave de desvanecimiento */
+    }
+
+    /* ANIMACIÓN DEL SPINNER CIRCULAR */
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f4f6;
+      border-top: 5px solid #1e40af; /* Azul institucional */
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .loader-text {
+      margin-top: 20px;
+      color: #1e3a8a;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Clase para ocultar el loader con suavidad */
+    .loader-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loadingScreen" class="loader-overlay">
+    <div class="spinner"></div>
+    <div class="loader-text">Iniciando plataforma logística...</div>
+  </div>
+
+  <div class="iframe-container">
+    <iframe id="appIframe" src="https://script.google.com/macros/s/AKfycbwNlApPzHnu6YWUAJ1RqbW79CFRJUHwWY68fvFg8nOmX1FIOCit2ymwSTLCK_6qRyfcLw/exec"></iframe>
+  </div>
+
+  <script>
+    // Escuchar el evento 'load' del iFrame
+    document.getElementById('appIframe').onload = function() {
+      const loader = document.getElementById('loadingScreen');
+      
+      // Aplicar la clase para desvanecer la pantalla de carga con suavidad
+      loader.classList.add('loader-hidden');
+    };
+  </script>
+
+</body>
+</html>
