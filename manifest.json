@@ -1,0 +1,22 @@
+```json
+{
+  "name": "Plataforma Logística",
+  "short_name": "Logística",
+  "description": "Control de suministro e inventario de operativos.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "logo_GPIAE_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo_GPIAE_192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
