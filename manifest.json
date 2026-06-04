@@ -1,7 +1,6 @@
-```json
 {
   "name": "Plataforma Logística",
-  "short_name": "Logística",
+  "short_name": "Agua CECOM",
   "description": "Control de suministro e inventario de operativos.",
   "start_url": "index.html",
   "display": "standalone",
